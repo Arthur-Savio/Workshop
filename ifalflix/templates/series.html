@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/media.css' %}">
+    {% for serie in series %}
+        <section class="section-1">
+            <div>
+                <h1>{{ serie.name }}</h1>
+                <h3>Temporadas: {{serie.temp}}</h3>
+                <p>{{ serie.description }}</p>
+            </div>
+        </section>
+
+        <section class="section-2">
+            <div>
+                <iframe class='trailer' width="560" height="315" 
+                    src="{{ serie.trailer }}" 
+                    frameborder="0" allow="accelerometer; 
+                    autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+        {% comment %} <img src="{{ movie.banner.url }}" alt="" style="width: 245px; height: 247px;"> {% endcomment %}
+    {% endfor %}
+{% endblock %}

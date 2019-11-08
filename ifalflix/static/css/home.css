@@ -1,0 +1,24 @@
+img {
+    width: 215px;
+    height: 290px;
+}
+
+td {
+    padding: 10px;
+}
+
+h3 {
+    padding: 10px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.zoom {
+    transition: transform .3s;
+    /* Animation */
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    transform: scale(1.1);
+}

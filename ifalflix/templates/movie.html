@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/media.css' %}">
+    <section class="section-1">
+        <div>
+            <h1>{{ movie.name }}</h1>
+            <h3>Duração: {{movie.duration}} min</h3>
+            <p>{{ movie.description }}</p>
+        </div>
+    </section>
+
+    <section class="section-2">
+        <div>
+            <iframe class='trailer' width="560" height="315" 
+                src="{{ movie.trailer }}" 
+                frameborder="0" allow="accelerometer; 
+                autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+{% endblock %}
