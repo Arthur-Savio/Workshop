@@ -64,6 +64,7 @@ def register_user(request):
         user = User.objects.create_user(username = username, password = password)
 
         if user is not None:
+            print(user)
             login(request, user)
             return redirect('/home')
         else:
