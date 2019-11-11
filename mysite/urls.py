@@ -10,7 +10,12 @@ from ifalflix import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('', include('ifalflix.urls'))
+    url('', include('ifalflix.urls')),
+    url('login/', views.login_user),
+    url('submit',views.login_submit ),
+    url('logout', views.logout_user),
+    url('register', views.register_view),
+    url('submit_register', views.register_user)
 ]  
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
