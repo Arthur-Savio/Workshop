@@ -1,0 +1,54 @@
+{% load static%} 
+<html>
+	<head>
+		<title>IFALFlix</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"-->
+		<link rel="stylesheet" href="{% static 'css/layout.css' %}">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		 <nav class="navbar navbar-inverse">
+		 	 <div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/home/">IFALFlix</a>
+				</div>
+		 	 </div>
+		 </nav>
+		 <div class="container-fluid" >
+		 	<form action="/submit" method="POST"> {% csrf_token %}
+		 		<div class="row">
+		 			<div class="form-group col-md-2">
+					    <label for="username" style="color:white">Usuário</label>
+					    <input name="username" class="form-control " id="email">
+				 	 </div>
+		 		</div>
+		 		<div class="row">
+		 			<div class="form-group col-md-2">
+					    <label for="password" style="color:white">Senha</label>
+					    <input name="password" type="password" class="form-control " id="password" >
+					  </div>
+		 		</div>
+		 		<div class="row">
+		 			{% for message in messages %}
+					  <div class="alert alert-danger col-md-2">
+					  	<strong>Erro!</strong> {{message}}
+					  </div>
+					{% endfor %}
+		 		</div>
+			  
+			  <div class="btn-group">
+			  	<button type="submit" class="btn btn-default">Fazer login</button>
+			  	<a href="/register" class="btn btn-default"> Se Cadastrar</a>
+			  </div>
+			  
+			</form>
+		
+		 </div>
+
+		
+	</body>
+</html>
